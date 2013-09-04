@@ -13,6 +13,9 @@ declare -a dirs_to_append=(
     "$HOME/bin"
     "$HOME/.dotfiles/bin"
     "$HOME/.rvm/bin"
+    "$HOME/opt/android-sdk-macosx/tools"
+    "$HOME/opt/android-sdk-macosx/platform-tools"
+    "$HOME/opt/android-sdk-macosx/build-tools/18.0.1"
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
     "./node_modules/.bin" # add nvm node_modules bin
