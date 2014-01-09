@@ -30,3 +30,5 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export GOPATH=$HOME/gocode
+
+export ANDROID_HOME="/Applications/Android Studio.app/sdk"
