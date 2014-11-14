@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # bash_config
+export CLICOLOR=1
 
 # Make vim the default editor
 export EDITOR="subl -w"
@@ -31,4 +32,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export GOPATH=$HOME/gocode
 
-export ANDROID_HOME="/Applications/Android Studio.app/sdk"
+export ANDROID_HOME="$HOME/opt/android/sdk"
+
+export ANDROID_SDK=${ANDROID_HOME}
+export ANDROID_NDK="$HOME/opt/android/ndk"

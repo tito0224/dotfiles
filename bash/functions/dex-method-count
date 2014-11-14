@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# http://jakewharton.com/play-services-is-a-monolith/
+# https://gist.github.com/JakeWharton/6002797
+
+# `classes.dex` method count helpers. Requires smali/baksmali from https://code.google.com/p/smali/
+# and dexdump from the build-tools in the Android SDK be on your PATH.
+
+dex-method-count() {
+  cat $1 | head -c 92 | tail -c 4 | hexdump -e '1/4 "%d\n"'
+}
+
+dex-method-count-by-package() {
+  dir=$(mktemp -d -t dex)
+  baksmali $1 -o $dir
+  for pkg in `find $dir/* -type d`; do
+    smali $pkg -o $pkg/classes.dex
+    count=$(dex-method-count $pkg/classes.dex)
+    name=$(echo ${pkg:(${#dir} + 1)} | tr '/' '.')
+    echo -e "$count\t$name"
+  done
+  rm -rf $dir
+}
+
+dex-method-count-apk() {
+  temp_dir=$(mktemp -d -t apl)
+  unzip -qq $1 -d $temp_dir
+
+  dex-method-count "$temp_dir/classes.dex"
+
+  rm -rf $temp_dir
+}
+
+dex-method-count-by-package-apk() {
+  temp_dir=$(mktemp -d -t apl)
+  unzip -qq $1 -d $temp_dir
+
+  dex-method-count-by-package "$temp_dir/classes.dex"
+
+  rm -rf $temp_dir
+}

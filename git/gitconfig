@@ -1,5 +1,5 @@
 [alias]
-    # https://git.wiki.kernel.org/articles/a/l/i/Aliases.html
+    # https://git.wiki.kernel.org/articles/a/l/i/Aliases.htmlx
 
     # `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
     # `git gc`: cleanup unnecessary files and optimize the local repository
@@ -7,6 +7,7 @@
     # `git stash clear`: remove all stashed states
     trim = !git remote prune origin && git gc
     cleanup = !git clean -df && git stash clear
+    trimb = !bash -c 'git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
     # Add untracked, remove deleted, and show status
     adda = !git add -A && git status
