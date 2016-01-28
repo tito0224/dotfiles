@@ -50,3 +50,5 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 
 alias unfuckwifi="sudo ifconfig awdl0 down"
 alias fuckwifi="sudo ifconfig awdl0 up"
+
+alias rmb="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
