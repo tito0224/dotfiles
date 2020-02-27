@@ -3,5 +3,3 @@
 # bashrc
 
 [ -n "$PS1" ] && source ~/.bash_profile
-
-export PATH=$PATH:"/Applications/microchip/xc16/v1.21/bin"

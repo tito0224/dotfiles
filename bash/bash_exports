@@ -4,7 +4,7 @@
 export CLICOLOR=1
 
 # Make vim the default editor
-export EDITOR="subl -w"
+export EDITOR="mvim -f"
 
 # Ignore duplicate commands in the history
 export HISTCONTROL=ignoredups
@@ -30,10 +30,9 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
+export GOROOT="$(brew --prefix golang)/libexec"
 
-export ANDROID_HOME="$HOME/opt/android/sdk"
-
-export ANDROID_SDK=${ANDROID_HOME}
-export ANDROID_NDK="$HOME/opt/android/ndk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_NDK="$HOME/Library/Android/ndk"
